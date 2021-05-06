@@ -17,7 +17,7 @@ class Lienzo(p:MainActivity) : View(p) {
     var nivel = 1
     var golpe = 1
     var escapar = 1
-    var pantalla = 3
+    var pantalla = 1
     var boton1 = Imagen(this, R.drawable.biniciar, 100f, 100f)
     var next = Imagen(this, R.drawable.next, 100f, 100f)
     var fondo1 = Imagen(this, R.drawable.fondo2, 0f, -350f)
@@ -121,7 +121,7 @@ class Lienzo(p:MainActivity) : View(p) {
             }//2
 
             3 ->{
-                vel = 2800L
+                vel = 2500L
                 nivel = 2
                 c.drawColor(Color.BLUE)
                 p.color = Color.WHITE
@@ -129,7 +129,7 @@ class Lienzo(p:MainActivity) : View(p) {
                 c.drawText("Nivel ${nivel}", 400f, 130f, p)
                 p.color = Color.RED
                 p.textSize = 63f
-                c.drawText("Golpear 5 Topos", 40f, 210f, p)
+                c.drawText("Golpear 4 Topos", 40f, 210f, p)
                 c.drawText("Topo escapado ${escapar}", 560f, 210f, p)
                 // p.color=Color.BLACK  //a18262   4b3621
                 p.setColor(Color.parseColor("#a18262"))
@@ -170,7 +170,7 @@ class Lienzo(p:MainActivity) : View(p) {
             }//3
 
             4 ->{
-                vel = 2500L
+                vel = 2100L
                 nivel = 3
                 c.drawColor(Color.BLUE)
                 p.color = Color.WHITE

@@ -7,25 +7,24 @@ import kotlin.random.Random
 import kotlin.system.measureTimeMillis
 
 class Topo(l:Lienzo) {
-    var i = (1..20).random()
+    var i = (1..25).random()
+    var it = (1..19).random()
     var estado = true
     var act = l
-    var ms = List(20){ Random.nextInt(850,2650).toLong()}
+    var ms = List(20){ Random.nextInt(1250,3150).toLong()}
     var t = 1
     var xs = 1
     var dibujar = false
-    var contador = 0
-    var x = List(30){ Random.nextInt(80,900).toFloat()}
+    var x = List(30){ Random.nextInt(80,900).toFloat()}//
     var y = List(30){ Random.nextInt(400,1700).toFloat()} //1780
     var itopo = BitmapFactory.decodeResource(l.resources, R.drawable.topo)
     var itopomuerto = BitmapFactory.decodeResource(l.resources, R.drawable.topomuerto)
-    var btnini = BitmapFactory.decodeResource(l.resources, R.drawable.biniciar)
     var invisible = false
 
     fun pintar(c: Canvas,vel:Long) {
         if(estado){
             val hilo = Thread(Runnable {
-                Thread.sleep(ms[15])
+                Thread.sleep(ms[it])
                 dibujar = true
             }).start()
             estado = false
@@ -75,30 +74,3 @@ if(dibujar) {
 
 }
 
-class Hilosleep(img:Topo):Thread(){
-    var topo = img
-    var x= 0
-    var iniciado = true
-    var pausa= 0
-
-    override fun run() {
-        super.run()
-        while (iniciado){
-            if (pausa==0){
-                topo.contador ++
-            }
-            sleep(500)
-           // x = 1
-           // this.interrupt()
-        }//whil
-    }
-
-    fun pausar(){
-        pausa = 1
-    }
-
-    fun detener(){
-        iniciado = false
-    }
-
-}
